@@ -133,9 +133,14 @@ module.exports = function (grunt) {
             },
             full: {
                 browsers: ['PhantomJS', 'Chrome', 'Firefox']
-            },
-            start: {
-                autoWatch: true
+            }
+        },
+        mochaTest: {
+            test: {
+                options: {
+                    reporter: 'spec'
+                },
+                src: ['src/test/**/*.js']
             }
         }
     });
@@ -149,6 +154,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
 
     grunt.registerTask('publishAssets', ['clean:build', 'copy']);
@@ -156,6 +162,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['publishAssets', 'jshint', 'karma:ci', 'less:dev', 'clean:less']);
 
+    grunt.registerTask('test', ['karma:ci', 'mochaTest']);
     grunt.registerTask('tdd', ['default', 'watch']);
 
 

@@ -5,7 +5,7 @@ run:
 	node nodestaticserver.js
 
 test:
-	node_modules/grunt-cli/bin/grunt karma:ci
+	node_modules/grunt-cli/bin/grunt test
 
 clean:
 	node_modules/grunt-cli/bin/grunt clean && rm -rf node_modules
