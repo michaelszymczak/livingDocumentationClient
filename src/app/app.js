@@ -1,11 +1,14 @@
 var config = require('./config'),
+    scenariosResponse = require('./models/scenariosResponseStub')
     express = require('express'),
     app = express();
 
-console.log(config.currentEnv);
-
 app.get('/', function (request, response) {
    response.send('Hello');
+});
+
+app.get('/scenarios/:title', function (request, response) {
+    response.send(scenariosResponse.get(request.params.title));
 });
 
 var server = app.listen(config.port, function () {
