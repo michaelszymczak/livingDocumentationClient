@@ -11,10 +11,11 @@ var webdir = "web";
 http.createServer(function(request, response) {
 
     var uri = url.parse(request.url).pathname,
-        filename = path.join(process.cwd(), webdir, uri);
+        filename = path.join(__dirname, webdir, uri);
 
-    console.log(uri);
-    console.log(filename);
+    console.log("Dirname: " + __dirname);
+    console.log("URI: " + uri);
+    console.log("Served filename: " + filename);
     fs.exists(filename, function(exists) {
         if(!exists) {
             response.writeHead(404, {"Content-Type": "text/plain"});

@@ -1,5 +1,5 @@
 {
-  "name": "frontend-workflow",
+  "name": "living-documentation-client",
   "private": true,
   "version": "0.0.0",
   "description": "Some description =====",
@@ -28,10 +28,10 @@
     "grunt-cli": "^0.1.13"
   },
   "scripts": {
-    "test": "echo \"No tests\" && exit 1"
+    "test": "make test"
   },
   "repository": "",
   "author": "",
-  "license": "BSD",
+  "license": "MIT",
   "readmeFilename": "README.md"
 }

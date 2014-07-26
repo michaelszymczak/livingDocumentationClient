@@ -27,14 +27,8 @@ The preperation of the host machine comes down to the installation of the virtua
 -------------
 
 1. Ssh to the guest machine - from the project root (where the Vagrantfile is located) type `vagrant ssh`.
-2. You should connect to the guest machine. Go to example project directory : `cd /vagrant/example_staticpage`.
-3. Build you project by typing:
-```
-    bower install
-    npm install
-    grunt
-    sudo nodejs nodestaticserver.js 80
-```
+2. You should connect to the guest machine. Go to example project directory : `cd /vagrant  `.
+3. Build and run you project by typing: `make install && make run`
 4. On you host machine go to http://192.168.33.10 and verify the build according to the checklist displayed there.
 
 
