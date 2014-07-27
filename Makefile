@@ -1,14 +1,25 @@
+prepare-system:
+	apt-get update && \
+	apt-get install -y npm phantomjs && \
+	ln -s -f /usr/bin/nodejs /usr/bin/node && \
+	npm install -g bower && \
+	npm install -g karma && \
+	npm install -g grunt-cli
+
 install:
-	npm install && node_modules/bower/bin/bower install && node_modules/grunt-cli/bin/grunt production
+	npm cache clear && \
+	npm install && \
+	bower install --allow-root && \
+	grunt production
 
 run:
 	node nodestaticserver.js
 
 test:
-	node_modules/grunt-cli/bin/grunt test
+	grunt test
 
 clean:
-	node_modules/grunt-cli/bin/grunt clean && rm -rf node_modules
+	grunt clean && rm -rf node_modules
 
 
 container-build:
@@ -18,4 +29,4 @@ container-run:
 	docker run -p 48888:8888 -d michaelszymczak/livingDocumentationClient
 
 
-.PHONY: install run test clean container-build container-run
+.PHONY: prepare-system install run test clean container-build container-run

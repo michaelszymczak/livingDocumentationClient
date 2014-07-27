@@ -3,12 +3,19 @@
 
 FROM    ubuntu:14.04
 
-RUN apt-get update; apt-get install -y npm phantomjs
-
-# App
-ADD . /src
-# Install app dependencies
-RUN cd /src; npm install; ln -s /usr/bin/nodejs /usr/bin/node; node_modules/bower/bin/bower --allow-root install; node_modules/grunt-cli/bin/grunt production
+RUN apt-get update;\
+    apt-get install -y npm phantomjs make;\
+    ln -s /usr/bin/nodejs /usr/bin/node;\
+    npm install -g bower;\
+    npm install -g karma;\
+    npm install -g grunt-cli
 
 EXPOSE  8888
-CMD ["nodejs", "/src/nodestaticserver.js"]
+
+ADD . /src
+WORKDIR /src
+
+RUN make install
+
+ENTRYPOINT ["make"]
+CMD ["run"]
