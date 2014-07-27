@@ -1,7 +1,10 @@
 Living Documentation client
 ================
+Travis CI build status: [![Build Status](https://travis-ci.org/michaelszymczak/livingDocumentationClient.svg?branch=master)](https://travis-ci.org/michaelszymczak/livingDocumentationClient)
 
 WIP - Work in progress, not ready yet.
+
+
 
 1. Prepare host machine
 -------------
